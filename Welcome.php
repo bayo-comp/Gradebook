@@ -5,23 +5,23 @@
     <div class=welcome>
         <?php
             function isAdmin($user_data) {
-                return isset($user_data) && isset($user_data['user_type']) && $user_data['user_type'] == 'Admin';
+                return isset($user_data) && isset($user_data['role']) && $user_data['role'] == 'Admin';
                 }
-            function isCashier($user_data) {
-                return isset($user_data) && isset($user_data['user_type']) && $user_data['user_type'] == 'Cashier';
+            function isStudent($user_data) {
+                return isset($user_data) && isset($user_data['role']) && $user_data['role'] == 'student';
                 }
             ob_start();
             session_start();
-            if (isset($_SESSION['user_type'])) 
+            if (isset($_SESSION['role'])) 
             {
                 echo '<p> Welcome ', $_SESSION["username"], '</p>';
-                echo '<p> You are a(n) ', $_SESSION['user_type'],'</p>';
+                echo '<p> You are a(n) ', $_SESSION['role'],'</p>';
                 if (isAdmin($_SESSION)) 
                 {
                     echo '<a href="/php/create_account.php"><input type=submit value="Create Account"></a>';
                     echo '<a href="/php/admin.php"><input type=submit value=Administration name=adminpage></a>';
                 }
-                if (isCashier($_SESSION)) 
+                if (isStudent($_SESSION)) 
                 {
                     echo '<a href="/php/cashier.php"><input type=submit value="POS Service"></a>';
                 }
@@ -31,7 +31,7 @@
             else 
             {
                 echo "Not logged in";
-                // header('Location:/index.php');
+                // header('Location:/login.php');
             }
         ?>
     </div>
