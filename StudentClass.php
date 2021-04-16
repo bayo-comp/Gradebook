@@ -6,7 +6,7 @@
                 
                 $grade = array("A", "B", "C","F");
 
-                $query = "SELECT * FROM Class";
+                $query = "SELECT * FROM Class order by RAND() LIMIT 4";
 
                 echo'<style>
                 table {
