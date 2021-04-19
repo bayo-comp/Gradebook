@@ -24,6 +24,7 @@
                 if (isStudent($_SESSION)) 
                 {
                     echo '<a href="/php/cashier.php"><input type=submit value="POS Service"></a>';
+					echo "<a href='Agenda.php'>Agenda</a>";
                 }
                     echo '<a href="/php/client.php"><input type=submit value="Online Store"></a>';
                     echo '<a href="/index.php"><input type=submit value=Logout></a>';
