@@ -10,6 +10,9 @@
             function isStudent($user_data) {
                 return isset($user_data) && isset($user_data['role']) && $user_data['role'] == 'student';
                 }
+	    function isParent($user_data) {
+                return isset($user_data) && isset($user_data['role']) && $user_data['role'] == 'Parent';
+                }
             ob_start();
             session_start();
             if (isset($_SESSION['role'])) 
@@ -26,9 +29,17 @@
                     echo '<a href="/php/cashier.php"><input type=submit value="POS Service"></a>';
 					echo "<a href='Agenda.php'>Agenda</a>";
                 }
-                    echo '<a href="/php/client.php"><input type=submit value="Online Store"></a>';
-                    echo '<a href="/index.php"><input type=submit value=Logout></a>';
-            } 
+                  if (isParent($_SESSION)) 
+                {
+					
+                echo '<a href="child.html"><input type=submit value="Child Info"></a>';
+                    echo '<a href="Grades.html"><input type=submit value="Grades"></a>';
+			   echo '<a href="Classes.html"><input type=submit value="Classes"></a>';
+			   echo '<a href="/logout.php"><input type=submit value=Logout></a>';
+				}
+                          
+	    
+	    } 
             else 
             {
                 echo "Not logged in";
