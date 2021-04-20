@@ -8,8 +8,11 @@
             function isStudent($user_data) {
                 return isset($user_data) && isset($user_data['role']) && $user_data['role'] == 'student';
                 }
-	    function isParent($user_data) {
+			function isParent($user_data) {
                 return isset($user_data) && isset($user_data['role']) && $user_data['role'] == 'Parent';
+                }
+			function isTeacher($user_data) {
+                return isset($user_data) && isset($user_data['role']) && $user_data['role'] == 'Teacher';
                 }
             ob_start();
             session_start();
@@ -17,6 +20,14 @@
             {
                 echo '<p> Welcome ', $_SESSION["username"], '</p>';
                 echo '<p> You are a(n) ', $_SESSION['role'],'</p>';
+				if (isTeacher($_SESSION)) 
+                {
+					echo '<a href="child.html"><input type=submit value="Child Info"></a>';
+                    echo '<a href="Grades.html"><input type=submit value="Grades"></a>';
+					echo '<a href="Classes.html"><input type=submit value="Classes"></a>';
+					echo '<a href="Agenda.php"><input type=submit value="Agenda"></a>';
+			   //echo '<a href="logout.php"><input type=submit value=Logout></a>';
+				}
                 if (isAdmin($_SESSION)) 
                 {
                     echo '<a href="/php/create_account.php"><input type=submit value="Create Account"></a>';
@@ -26,20 +37,20 @@
                 }
                 if (isStudent($_SESSION)) 
                 {
-                    echo '<a href="/php/cashier.php"><input type=submit value="POS Service"></a>';
+                    echo '<a href="Grades.html"><input type=submit value="Grades"></a>';
+					echo '<a href="Classes.html"><input type=submit value="Classes"></a>';
 					echo '<a href="Agenda.php"><input type=submit value="Agenda"></a>';
 					 //echo '<a href="logout.php"><input type=submit value=Logout></a>';
                 }
                   if (isParent($_SESSION)) 
                 {
-                echo '<a href="child.html"><input type=submit value="Child Info"></a>';
+					echo '<a href="child.html"><input type=submit value="Child Info"></a>';
                     echo '<a href="Grades.html"><input type=submit value="Grades"></a>';
-			   echo '<a href="Classes.html"><input type=submit value="Classes"></a>';
-			  echo '<a href="Agenda.php"><input type=submit value="Agenda"></a>';
+					echo '<a href="Classes.html"><input type=submit value="Classes"></a>';
+					echo '<a href="Agenda.php"><input type=submit value="Agenda"></a>';
 			   //echo '<a href="logout.php"><input type=submit value=Logout></a>';
 				}
-				echo '<a href="logout.php"><input type=submit value=Logout></a>';
-			
+			echo '<a href="logout.php"><input type=submit value=Logout></a>';
 	    } 
 			
             else 

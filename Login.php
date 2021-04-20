@@ -62,7 +62,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;  
-  			    $_SESSION["role"] = $role;
+							$_SESSION["role"] = $role;
                             
                             // Redirect user to welcome page
 							
@@ -120,7 +120,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Login">
             </div>
-            <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
+            <p>Don't have an account? <a href="Register.php">Sign up now</a>.</p>
         </form>
     </div>    
 </body>
