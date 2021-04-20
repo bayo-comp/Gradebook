@@ -6,6 +6,7 @@
 	}
 	$link_address1 = 'Welcome.php';
 	echo "<a href='$link_address1'>Welcome</a>";
+	echo " ";
 	$link_address2 = 'Login.php';
 	echo "<a href='$link_address2'>Login</a>";
 	echo "<table border='1' >
@@ -17,14 +18,18 @@
 </tr>";
 
 $username  = $_SESSION['username'];
-$sql="SELECT Exams, Assignments, Quizzes FROM webDesign.agenda_table Where Pusername='$username'";
-$result = $conn->query($sql);
+#if($_SESSION['role']== teacher) { //select from teacher table where username=$_SESSION['username'] 
+#}
+#if($_SESSION['role']== parent || student ) { //select from Parent table where username=$_SESSION['username'] 
+$sqlp="SELECT Exams, Assignments, Quizzes FROM webDesign.agenda_table WHERE username='$username'";
+#}
+$result = $conn->query($sqlp);
 //the problem was the query code didn't work for some reason.
-if ($result->num_rows > 0) {
+if ($result && $result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-echo"<tr>";
-    echo "<td align=center> ".$row["Exams"]."<br></td>";
+	echo"<tr>";
+    echo "<td align=center> " .$row["Exams"]."<br></td>";
     echo "<td align=center> " .$row["Assignments"]."<br></td>";
     echo "<td align=center> " .$row["Quizzes"]."<br></td>";
     //place in each table. 
@@ -34,30 +39,6 @@ echo"<tr>";
   echo "0 results";
 }
 $conn->close();
-/*
-<!DOCTYPE html> 
-<html lang="en"> 
-	<head>
-		<meta charset="utf-8">
-		<title>Agenda</title>
-	</head>
-	<body> 
-		<h1>Agenda</h1>
-		<h2>Here are your upcoming due dates!</h2>
-		
-		<table  style="color:red;border-collapse:collapse;" border = 1px;>
-			<tr>Exams</tr>
-				<td></td>
-		</table>
-		<table style="color:red;border-collapse:collapse;" border = 1px;>
-			<tr>Quizzes</tr>
-				<td></td>
-		</table>
-		<table style="color:red;border-collapse:collapse;" border = 1px;>
-			<tr>Assignments</tr>
-				<td></td>
-		</table>
-		
-	</body>
+?>
 
-</html>*/
+
