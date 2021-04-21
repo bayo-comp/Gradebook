@@ -30,10 +30,11 @@
 				}
                 if (isAdmin($_SESSION)) 
                 {
-                    echo '<a href="/php/create_account.php"><input type=submit value="Create Account"></a>';
-                    echo '<a href="/php/admin.php"><input type=submit value=Administration name=adminpage></a>';
-					echo '<a href="Agenda.php"><input type=submit value="Agenda"></a>';
-					// echo '<a href="logout.php"><input type=submit value=Logout></a>';
+                    echo '<p>Please Select What Information You Want to See. </p>';
+                    echo '<a href="Admin.php"><input type=submit value=Admin Info name=adminpage></a>';
+		    echo '<a href="teachTable.php"><input type=submit value=Teacher Info name=teacherpage></a>';
+		    echo '<a href="sTable.php"><input type=submit value=Student Info name=studentpage></a>';
+		    echo '<a href="Register.php"><input type=submit value=Register Info name=regpage></a>';
                 }
                 if (isStudent($_SESSION)) 
                 {
