@@ -44,9 +44,9 @@
                 }
                   if (isParent($_SESSION)) 
                 {
-					echo '<a href="child.html"><input type=submit value="Child Info"></a>';
-                    echo '<a href="Grades.html"><input type=submit value="Grades"></a>';
-					echo '<a href="Classes.html"><input type=submit value="Classes"></a>';
+				  echo '<a href="child.html"><input type=submit value="Child Info"></a>';
+                    echo '<a href="childGrades.html"><input type=submit value="Grades"></a>';
+			   echo '<a href="childClass.html"><input type=submit value="Classes"></a>';
 					echo '<a href="Agenda.php"><input type=submit value="Agenda"></a>';
 			   //echo '<a href="logout.php"><input type=submit value=Logout></a>';
 				}
