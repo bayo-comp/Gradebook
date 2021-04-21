@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bgimg {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSl4wT0d3EVZ1aRGEh3A77S52pmx3x9BSBmmQ&usqp=CAU');
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+}
+
+.topleft {
+  position: absolute;
+  top: 0;
+  left: 16px;
+}
+
+.bottomleft {
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+hr {
+  margin: auto;
+  width: 40%;
+}
+</style>
+
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "child.php", true);
+  xhttp.send();
+}
+</script>
+
+<body>
+
+
+<p id="demo"></p>
+<div class="bgimg">
+  <div class="topleft">
+    <p>Student Info</p>
+	<p><button type="button" onclick="loadDoc()">Click to view child info</button>
+ </p>
+  </div>
+
+</body>
+</html>
