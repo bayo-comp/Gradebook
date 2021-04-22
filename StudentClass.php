@@ -2,11 +2,11 @@
     <body>
         <div class=Add>
             <?php
-                include_once "$_SERVER[DOCUMENT_ROOT]/php1/config0.php";
-                
-                $grade = array("A", "B", "C","F");
 
-                $query = "SELECT * FROM Class order by RAND() LIMIT 4";
+                session_start();
+                include_once "$_SERVER[DOCUMENT_ROOT]/php1/config0.php";
+
+                $query = "SELECT * FROM Class";
 
                 echo'<style>
                 table {
@@ -25,9 +25,9 @@
                             <th><font face="Arial">End date</font></th>
                             <th><font face="Arial">Teacher Id</font></th>
                             <th><font face="Arial">Course Id</font></th>
-                            <th><font face="Arial">Grade</font></th>
                         </tr>';
-
+                
+                $i = 0;
                 
                 if($result = $connection->query($query))
                 {
@@ -39,30 +39,35 @@
                         $N4 = $row["end_date"];
                         $N5 = $row["teacher_id"];
                         $N6 = $row["course_id"];
-                        
-                        echo'<style>
-            
-                        td, th {
-                          border: 1px solid #dddddd;
-                          text-align: left;
-                          padding: 8px;
-                        }
-                        
-                        tr:nth-child(even) {
-                          background-color: #dddddd;
-                        }
-                        </style>';
+                        $N7 = $row["Susername"];
+                        if($N7 == $_SESSION["username"])
+                        {
+                          echo'<style>
+              
+                          td, th {
+                            border: 1px solid #dddddd;
+                            text-align: left;
+                            padding: 8px;
+                          }
+                          
+                          tr:nth-child(even) {
+                            background-color: #dddddd;
+                          }
+                          </style>';
 
-                        echo'<tr>
-                                <td>'.$N1.'</td>
-                                <td>'.$N2.'</td>
-                                <td>'.$N3.'</td>
-                                <td>'.$N4.'</td>
-                                <td>'.$N5.'</td>
-                                <td>'.$N6.'</td>
-                                <td>'.$grade[array_rand($grade)].'</td>
-                            <tr>';
+                          echo'<tr>
+                                  <td>'.$N1.'</td>
+                                  <td>'.$N2.'</td>
+                                  <td>'.$N3.'</td>
+                                  <td>'.$N4.'</td>
+                                  <td>'.$N5.'</td>
+                                  <td>'.$N6.'</td>
+                              <tr>';
+
+                              $i+=1;
+                        }
                     }
+                    $_SESSION["NumberofClasses"] = $i;
                     echo '
                     <style>
                     #page-wrap {
