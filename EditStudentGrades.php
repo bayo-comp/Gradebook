@@ -102,6 +102,7 @@ if(isset($_POST['submit']))
     $Susername = $_POST['Susername'];
     $sql = $connection->query("INSERT INTO grades (Math ,Reading ,Science ,SocialStudies ,Susername) 
     VALUES ('$Math','$Reading','$Science','$SocialStudies','$Susername')");
+    // trying to update the teacher value based on who inut the grades for a student
     // $sql1 = $connection->query("UPDATE grades SET Tusername={$_SESSION["username"]} 
     // WHERE Susername = '$Susername");
     if ($sql == false) { // an error occured with the sql querry
