@@ -80,7 +80,7 @@
                         </div>
                         <div class="card-body" style="text-align:center">
                           <p class="mb-0"><strong class="pr-1">Student ID:</strong>',$_SESSION["id"],'</p>
-                          <p class="mb-0"><strong class="pr-1">Class:</strong>4</p>
+                          <p class="mb-0"><strong class="pr-1">Class:</strong>',$_SESSION["NumberofClasses"],'</p>
                           <p class="mb-0"><strong class="pr-1">Section:</strong>A</p>
                         </div>
                       </div>
@@ -96,7 +96,8 @@
                       </div>
                         <div style="height: 20px"></div>
                       <div class="card shadow-sm" style="text-align:center">
-                        <a href="/php1/AddClass.php"><button class="button button1">Grades</button></a>
+                        <a href="/php1/AddClass.php"><button class="button button1">Classes</button></a>
+                        <a href="/php1/grades.php"><button class="button button2">Grades</button></a> 
                         <a href="/index.php"><button class="button button3" type=submit value=logout>Logout</button></a>
                       </div>
                     </div>
