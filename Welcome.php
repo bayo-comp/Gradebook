@@ -36,6 +36,13 @@
 		    echo '<a href="sTable.php"><input type=submit value=Student Info name=studentpage></a>';
 		    echo '<a href="Register.php"><input type=submit value=Register Info name=regpage></a>';
                 }
+		    if (isTeacher($_SESSION)) 
+                {
+                    echo '<a href="/create_account.php"><input type=submit value="Create Account"></a>';
+                    echo '<a href="/teacher.php"><input type=submit value="View Students" name=teacherpage></a>';
+                    echo '<a href="/StudentGrades.php"><input type=submit value="View Student Grades" name=teacherpage></a>';
+                    echo '<a href="/EditStudentGrades.php"><input type=submit value="Edit Student Grades" name=teacherpage></a>';
+                }
                 if (isStudent($_SESSION)) 
                 {
                     echo '<a href="Grades.html"><input type=submit value="Grades"></a>';
