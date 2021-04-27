@@ -1,4 +1,5 @@
 <html>
+<head><link href="Style.css" rel="stylesheet"/></head>
 	<body>
 		<div class=welcome>
 			<?php
