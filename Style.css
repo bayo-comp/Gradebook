@@ -22,6 +22,10 @@ td, th {
     padding: 8px;
 }
 
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
 *{
     text-align: center;
 }
@@ -150,14 +154,14 @@ card-header{
     color: white;
 }
 
-.button8 
+.button9
 {
     background-color: white; 
     color: black; 
     border: 2px solid #964B00;
 }
   
-.button8:hover 
+.button9:hover 
 {
     background-color: #964B00;
     color: white;
