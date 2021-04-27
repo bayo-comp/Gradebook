@@ -88,4 +88,68 @@ card-header{
     background-color: #FF0000;
     color: white;
 }
+
+.button4 
+{
+    background-color: white; 
+    color: black; 
+    border: 2px solid #ffc400;
+}
   
+.button4:hover 
+{
+    background-color: #ffc400;
+    color: white;
+}
+
+.button5 
+{
+    background-color: white; 
+    color: black; 
+    border: 2px solid #8400ff;
+}
+  
+.button5:hover 
+{
+    background-color: #8400ff;
+    color: white;
+}
+
+.button6 
+{
+    background-color: white; 
+    color: black; 
+    border: 2px solid #00ffc3;
+}
+  
+.button6:hover 
+{
+    background-color: #00ffc3;
+    color: white;
+}
+
+.button7 
+{
+    background-color: white; 
+    color: black; 
+    border: 2px solid #f700ff;
+}
+  
+.button7:hover 
+{
+    background-color: #f700ff;
+    color: white;
+}
+
+.button8 
+{
+    background-color: white; 
+    color: black; 
+    border: 2px solid #12914b;
+}
+  
+.button8:hover 
+{
+    background-color: #12914b;
+    color: white;
+}
