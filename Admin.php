@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	$conn = mysqli_connect('localhost','root','','webdesigndb');
+	$conn = mysqli_connect('localhost','root','','webdesign');
 	if(!$conn){
 		die('Connection Failed! Error: ' . mysqli_error($conn));
 	}
