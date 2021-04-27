@@ -87,7 +87,6 @@
                             <h4> You are a(n) ', $_SESSION['role'],'</h4>
                             <a href="Admin.php"><button class="button button4" value="Admin Info">Admin Info</button></a>
                             <a href="teachTable.php"><button class="button button1" value="Teacher Info">Teacher Info</button></a>
-                            <a href="Admin.php"><button class="button button4" value="Admin Info">Admin Info</button></a>
                             <a href="sTable.php"><button class="button button2" value="Student Info">Student Info</button></a>
                             <a href="Register.php"><button class="button button6" value="Register Info">Register Info</button></a>
                             <a href="/index.php"><button class="button button3" type=submit value=logout>Logout</button></a>
