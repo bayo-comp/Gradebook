@@ -3,8 +3,8 @@
 <body>
 <?php 
 session_start();
-include_once "C:/xampp/htdocs/config.php";
-$mysqli = new mysqli("localhost", $username, $pass, $dbname); 
+include_once "config.php";
+$mysqli = new mysqli('localhost','root','','webdesigndb'); 
 echo '<style>
                     #page-wrap {
                         width: 800px;
@@ -87,8 +87,8 @@ echo'<style>
                         }
                         </style>';
 echo'<div class="card shadow-sm" style="text-align:center">
-    <a href="/welcome.php"><button class="button button4" type=submit value=Back>Go Back</button></a>
-    <a href="/index.php"><button class="button button3" type=submit value=logout>Logout</button></a>
+    <a href="Welcome.php"><button class="button button4" type=submit value=Back>Go Back</button></a>
+    <a href="logout.php"><button class="button button3" type=submit value=logout>Logout</button></a>
 </div>';
 if(isset($_POST['submit']))
 {
