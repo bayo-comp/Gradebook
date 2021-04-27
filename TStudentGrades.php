@@ -3,8 +3,8 @@
 <body>
 <?php 
 session_start();
-include_once "C:/xampp/htdocs/config.php";
-$mysqli = new mysqli("localhost", $username, $pass, $dbname); 
+include_once "config.php";
+$mysqli = new mysqli('localhost','root','','projectDB'); 
 $query = "SELECT * FROM grades";
 echo '<style>
                     #page-wrap {
