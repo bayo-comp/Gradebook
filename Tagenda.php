@@ -11,7 +11,7 @@
 <?php
 	session_start();
 	require_once "config.php";
-	$conn = mysqli_connect('localhost', 'username', 'password', 'webdesign');
+	$conn = mysqli_connect('localhost','root','','webdesign');
 	if(!$conn){
 		die('Connection Failed! Error: ' . mysqli_error($conn));
 	}
