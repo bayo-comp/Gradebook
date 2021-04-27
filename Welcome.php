@@ -19,7 +19,7 @@
             if (isset($_SESSION['role'])) 
             {
                 echo '<p> Welcome ', $_SESSION["username"], '</p>';
-                echo '<p> You are a(n) ', $_SESSION['role'],'</p>';
+                echo '<p> You are a ', $_SESSION['role'],'</p>';
                 if (isAdmin($_SESSION)) 
                 {
                     echo '<p>Please Select What Information You Want to See. </p>';

@@ -27,8 +27,9 @@
 		$Assignments = $_POST['Assignments'];
 		$Quizzes = $_POST['Quizzes'];
 		$Username  = $_POST['username'];
-		$sql = $conn->query("INSERT INTO agenda_table (Exams, Assignments, Quizzes, username) 
-    VALUES ('$Exams','$Assignments','$Quizzes','$Username')");
+		$Tusername  = $_SESSION['username'];
+		$sql = $conn->query("INSERT INTO agenda_table (Exams, Assignments, Quizzes, username, TeacherUsername) 
+    VALUES ('$Exams','$Assignments','$Quizzes','$Username','$Tusername')");
     // trying to update the teacher value based on who inut the grades for a student
     // $sql1 = $connection->query("UPDATE grades SET Tusername={$_SESSION["username"]} 
     // WHERE Susername = '$Susername");
