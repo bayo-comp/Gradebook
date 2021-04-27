@@ -12,7 +12,7 @@
                 return isset($user_data) && isset($user_data['role']) && $user_data['role'] == 'Parent';
                 }
 			function isTeacher($user_data) {
-                return isset($user_data) && isset($user_data['role']) && $user_data['role'] == 'Teacher';
+                return isset($user_data) && isset($user_data['role']) && $user_data['role'] == 'teacher';
                 }
             ob_start();
             session_start();
@@ -20,43 +20,35 @@
             {
                 echo '<p> Welcome ', $_SESSION["username"], '</p>';
                 echo '<p> You are a(n) ', $_SESSION['role'],'</p>';
-				if (isTeacher($_SESSION)) 
-                {
-					echo '<a href="child.html"><input type=submit value="Child Info"></a>';
-                    echo '<a href="Grades.html"><input type=submit value="Grades"></a>';
-					echo '<a href="Classes.html"><input type=submit value="Classes"></a>';
-					echo '<a href="Agenda.php"><input type=submit value="Agenda"></a>';
-			   //echo '<a href="logout.php"><input type=submit value=Logout></a>';
-				}
                 if (isAdmin($_SESSION)) 
                 {
                     echo '<p>Please Select What Information You Want to See. </p>';
                     echo '<a href="Admin.php"><input type=submit value=Admin Info name=adminpage></a>';
-		    echo '<a href="teachTable.php"><input type=submit value=Teacher Info name=teacherpage></a>';
-		    echo '<a href="sTable.php"><input type=submit value=Student Info name=studentpage></a>';
-		    echo '<a href="Register.php"><input type=submit value=Register Info name=regpage></a>';
+					echo '<a href="teachTable.php"><input type=submit value=Teacher Info name=teacherpage></a>';
+					echo '<a href="sTable.php"><input type=submit value=Student Info name=studentpage></a>';
+					echo '<a href="Register.php"><input type=submit value=Register Info name=regpage></a>';
                 }
-		    if (isTeacher($_SESSION)) 
+				if (isTeacher($_SESSION)) 
                 {
                     echo '<a href="/create_account.php"><input type=submit value="Create Account"></a>';
                     echo '<a href="/teacher.php"><input type=submit value="View Students" name=teacherpage></a>';
                     echo '<a href="/StudentGrades.php"><input type=submit value="View Student Grades" name=teacherpage></a>';
                     echo '<a href="/EditStudentGrades.php"><input type=submit value="Edit Student Grades" name=teacherpage></a>';
+					echo '<a href="Tagenda.php"><input type=submit value="Assign Due Dates"></a>';
                 }
                 if (isStudent($_SESSION)) 
                 {
                     echo '<a href="Grades.html"><input type=submit value="Grades"></a>';
 					echo '<a href="Classes.html"><input type=submit value="Classes"></a>';
 					echo '<a href="Agenda.php"><input type=submit value="Agenda"></a>';
-					 //echo '<a href="logout.php"><input type=submit value=Logout></a>';
+					
                 }
-                  if (isParent($_SESSION)) 
+                 if (isParent($_SESSION)) 
                 {
-				  echo '<a href="child.html"><input type=submit value="Child Info"></a>';
+					echo '<a href="child.html"><input type=submit value="Child Info"></a>';
                     echo '<a href="childGrades.html"><input type=submit value="Grades"></a>';
-			   echo '<a href="childClass.html"><input type=submit value="Classes"></a>';
+					echo '<a href="childClass.html"><input type=submit value="Classes"></a>';
 					echo '<a href="Agenda.php"><input type=submit value="Agenda"></a>';
-			   //echo '<a href="logout.php"><input type=submit value=Logout></a>';
 				}
 			echo '<a href="logout.php"><input type=submit value=Logout></a>';
 	    } 
@@ -64,7 +56,7 @@
             else 
             {
                 echo "Not logged in";
-                // header('Location:/login.php');
+                echo '<a href="Login.php"><input type=submit value="Login"></a>';
             }
         ?>
 </div>
