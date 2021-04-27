@@ -4,7 +4,7 @@
 <?php 
 session_start();
 include_once "config.php";
-$mysqli = new mysqli('localhost','root','','webdesigndb'); 
+$mysqli = new mysqli('localhost','root','','webdesign'); 
 echo '<style>
                     #page-wrap {
                         width: 800px;
