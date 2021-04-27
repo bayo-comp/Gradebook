@@ -25,16 +25,15 @@
                 {
                     echo '<p>Please Select What Information You Want to See. </p>';
                     echo '<a href="Admin.php"><input type=submit value=Admin Info name=adminpage></a>';
-					echo '<a href="teachTable.php"><input type=submit value=Teacher Info name=teacherpage></a>';
-					echo '<a href="sTable.php"><input type=submit value=Student Info name=studentpage></a>';
-					echo '<a href="Register.php"><input type=submit value=Register Info name=regpage></a>';
+		    echo '<a href="teachTable.php"><input type=submit value=Teacher Info name=teacherpage></a>';
+		    echo '<a href="sTable.php"><input type=submit value=Student Info name=studentpage></a>';
                 }
 	if (isTeacher($_SESSION)) 
                 {
-                    echo '<a href="/create_account.php"><input type=submit value="Create Account"></a>';
-                    echo '<a href="/teacher.php"><input type=submit value="View Students" name=teacherpage></a>';
-                    echo '<a href="/StudentGrades.php"><input type=submit value="View Student Grades" name=teacherpage></a>';
-                    echo '<a href="/EditStudentGrades.php"><input type=submit value="Edit Student Grades" name=teacherpage></a>';
+                    //echo '<a href="/create_account.php"><input type=submit value="Create Account"></a>';
+                    echo '<a href="teacher.php"><input type=submit value="View Students" name=teacherpage></a>';
+                    echo '<a href="StudentGrades.php"><input type=submit value="View Student Grades" name=teacherpage></a>';
+                    echo '<a href="TStudentGrades.php"><input type=submit value="Edit Student Grades" name=teacherpage></a>';
 					echo '<a href="Tagenda.php"><input type=submit value="Assign Due Dates"></a>';
                 }
                 if (isStudent($_SESSION)) 
