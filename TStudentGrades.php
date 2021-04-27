@@ -4,7 +4,7 @@
 <?php 
 session_start();
 include_once "config.php";
-$mysqli = new mysqli('localhost','root','','projectDB'); 
+$mysqli = new mysqli('localhost','root','','webdesign'); 
 $query = "SELECT * FROM grades";
 echo '<style>
                     #page-wrap {
