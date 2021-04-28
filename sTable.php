@@ -4,20 +4,102 @@
 	if(!$conn){
 		die('Connection Failed! Error: ' . mysqli_error($conn));
 	}
-	echo '<a href="Welcome.php"><input type=submit value=Welcome Info name=welcomepage></a>';
-	echo " ";
-	echo '<a href="Login.php"><input type=submit value=Login Info name=loginpage></a>';
-	echo "<h1>Students</h1>";
-	echo "<h2>Here is the list of Students:</h2>";
-	echo "<table border='1' >
+	echo '<style>
+                    #page-wrap {
+                        width: 800px;
+                        margin: 0 auto;
+                    }
+
+                    .button {
+                        border: none;
+                        color: white;
+                        padding: 16px 32px;
+                        text-align: center;
+                        text-decoration: none;
+                        display: inline-block;
+                        font-size: 16px;
+                        margin: 4px 2px;
+                        transition-duration: 0.4s;
+                        cursor: pointer;
+                    }
+                      
+                      .button1 {
+                        background-color: white; 
+                        color: black; 
+                        border: 2px solid #4CAF50;
+                    }
+                      
+                      .button1:hover {
+                        background-color: #4CAF50;
+                        color: white;
+                      }
+                      
+                      .button2 {
+                        background-color: white; 
+                        color: black; 
+                        border: 2px solid #008CBA;
+                      }
+                      
+                      .button2:hover {
+                        background-color: #008CBA;
+                        color: white;
+                      }
+
+                      .button3 {
+                        background-color: white; 
+                        color: black; 
+                        border: 2px solid #FF0000;
+                      }
+                      
+                      .button3:hover {
+                        background-color: #FF0000;
+                        color: white;
+                      }
+
+                      .button4 {
+                        background-color: white; 
+                        color: black; 
+                        border: 2px solid #0000FF;
+                      }
+                      
+                      .button4:hover {
+                        background-color: #0000FF;
+                        color: white;
+                      }
+                      
+                </style>';
+echo'<style>
+                table {
+                  font-family: arial, sans-serif;
+                  border-collapse: collapse;
+                  width: 100%;
+                }
+
+                        td, th {
+                          border: 1px solid #dddddd;
+                          text-align: left;
+                          padding: 8px;
+                        }
+
+                        tr:nth-child(even) {
+                          background-color: #dddddd;
+                        }
+                        </style>';
+echo'<div class="card shadow-sm" style="text-align:center">
+    <a href="Welcome.php"><button class="button button4" type=submit value=Back>Go Back</button></a>
+    <a href="logout.php"><button class="button button3" type=submit value=logout>Logout</button></a>
+	<h1>Students:</h1>
+	<h2>Here is the list of Students:</h2>
+	<table class="center"; border="0"; cellspacing="4"; cellpadding="4";>
 	<tr>
 	<td align=center> <b> First Name </b></td>
 	<td align=center><b> Last Name </b></td>
 	<td align=center><b> Gender </b></td>
-	<td align=center><b> Mother's Name </b></td>
-	<td align=center><b> Father's Name </b></td>
-	<td align=center><b> Teacher's Name </b></td>
-	</tr>";
+	<td align=center><b> Mother Username </b></td>
+	<td align=center><b> Father Username </b></td>
+	<td align=center><b> Teacher Username </b></td>
+	</tr>
+</div>';
 	
 	$username  = $_SESSION['username'];
 	$sqlp="SELECT firstName, lastName, Gender, MotherUsername, FatherUsername, TeacherUsername FROM student";

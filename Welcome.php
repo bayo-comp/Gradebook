@@ -3,18 +3,19 @@
 
         <div class=welcome>
             <?php
-                include_once "$_SERVER[DOCUMENT_ROOT]/php1/config0.php";
+                require_once "config.php";
+		$conn = mysqli_connect('localhost','root','','projectDB');
                 function isAdmin($user_data) {
                     return isset($user_data) && isset($user_data['role']) && $user_data['role'] == 'Admin';
                     }
                 function isTeacher($user_data) {
-                    return isset($user_data) && isset($user_data['role']) && $user_data['role'] == 'teacher';
+                    return isset($user_data) && isset($user_data['role']) && $user_data['role'] == 'Teacher';
                     }
                 function isStudent($user_data){
-                    return isset($user_data) && isset($user_data['role']) && $user_data['role'] == 'student';
+                    return isset($user_data) && isset($user_data['role']) && $user_data['role'] == 'Student';
                     }
                 function isParent($user_data){
-                    return isset($user_data) && isset($user_data['role']) && $user_data['role'] == 'parent';
+                    return isset($user_data) && isset($user_data['role']) && $user_data['role'] == 'Parent';
                     }
                 ob_start();
                 session_start();
@@ -53,10 +54,10 @@
                           </div>
                             <div style="height: 20px"></div>
                             <div class="card shadow-sm" style="text-align:center">
-                            <a href="/php1/AddClass.php"><button class="button button1">Classes</button></a>
-                            <a href="/php1/grades.php"><button class="button button2">Grades</button></a> 
-                            <a href="/php1/StudentAgenda.php"><button class="button button4">Agenda</button></a>
-                            <a href="/index.php"><button class="button button3" value=logout>Logout</button></a>
+                            <a href="StudentClass.php"><button class="button button1">Classes</button></a>
+                            <a href="StudentGrades.php"><button class="button button2">Grades</button></a> 
+                            <a href="Agenda.php"><button class="button button4">Agenda</button></a>
+                            <a href="logout.php"><button class="button button3" value=logout>Logout</button></a>
                           </div>
                         </div>
                       </div>
@@ -70,13 +71,12 @@
                         echo'<link rel="stylesheet" href="Style.css">
                             <div class="card shadow-sm" style="text-align:center">
                                       <h2> Welcome ', $_SESSION["username"], '<h2>
-                                      <h4> You are a(n) ', $_SESSION['role'],'</h4>
-                                      <a href="/create_account.php"><button class="button button7" value="Create Account">Create Account</button></a>
-                                      <a href="/teacher.php"><button class="button button2" value="View Students">View Students</button></a>
-                                      <a href="/StudentGrades.php"><button class="button button6" value="View Student Grades">View Student Grades</button></a>
-                                      <a href="/EditStudentGrades.php"><button class="button button1" value="Edit Student Grades">Edit Student Grades</button></a>
-                                      <a href="Tagenda.php"><button class="button button5" value="Assignment Due Dates">Assignment Due Dates</button></a>
-                                      <a href="/index.php"><button class="button button3" type=submit value=logout>Logout</button></a>
+                                      <h4> You are a ', $_SESSION['role'],'</h4>
+                                      <a href="teacher.php"><button class="button button2" value="View Students">View Students</button></a>
+                                      <a href="TStudentGrades.php"><button class="button button6" value="View Student Grades">View Student Grades</button></a>
+                                      <a href="EditStudentGrades.php"><button class="button button1" value="Edit Student Grades">Edit Student Grades</button></a>
+                                      <a href="Tagenda.php"><button class="button button5" value="Assign Due Dates">Assign Due Dates</button></a>
+                                      <a href="logout.php"><button class="button button3" type=submit value=logout>Logout</button></a>
                             </div>';
                   }
                   else if(isAdmin($_SESSION))
@@ -84,12 +84,12 @@
                     echo '<link rel="stylesheet" href="style.css">
                           <div class="card shadow-sm" style="text-align:center">
                             <h2> Welcome ', $_SESSION["username"], '</h2>
-                            <h4> You are a(n) ', $_SESSION['role'],'</h4>
+                            <h4> You are an ', $_SESSION['role'],'</h4>
                             <a href="Admin.php"><button class="button button4" value="Admin Info">Admin Info</button></a>
                             <a href="teachTable.php"><button class="button button1" value="Teacher Info">Teacher Info</button></a>
                             <a href="sTable.php"><button class="button button2" value="Student Info">Student Info</button></a>
-                            <a href="Register.php"><button class="button button6" value="Register Info">Register Info</button></a>
-                            <a href="/index.php"><button class="button button3" type=submit value=logout>Logout</button></a>
+			    <a href="parentTable.php"><button class="button button2" value="Student Info">Parent Info</button></a>
+                            <a href="logout.php"><button class="button button3" type=submit value=logout>Logout</button></a>
                           </div>';
                   } 
                   else if(isParent($_SESSION))
@@ -97,22 +97,21 @@
                     echo '<link rel="stylesheet" href="style.css">
                           <div class="card shadow-sm" style="text-align:center">
                             <h2> Welcome ', $_SESSION["username"], '</h2>
-                            <h4> You are a(n) ', $_SESSION['role'],'</h4>
+                            <h4> You are a ', $_SESSION['role'],'</h4>
                             <a href="child.html"><button class="button button5" value="Child Info">Child Info</button></a>
                             <a href="childGrades.html"><button class="button button7" value="Grades">Grades</button></a>
                             <a href="childClass.html"><button class="button button4" value="Classes">Classes</button></a>
-                            <a href="Agenda.php"><button class="button button2" value="Agenda">Agenda</button></a>
-                            <a href="/index.php"><button class="button button3" type=submit value=logout>Logout</button></a>
+                            <a href="logout.php"><button class="button button3" type=submit value=logout>Logout</button></a>
                           </div>';
                   }
 
                   else
                   {
                     echo "Not logged in";
+		    echo '<a href="logout.php"><button class="button button3" type=submit value=logout>Logout</button></a>';
                   }
                 }
             ?>
         </div>
     </body>
 </html>
-

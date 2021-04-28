@@ -4,9 +4,10 @@
             <?php
 
                 session_start();
-                include_once "$_SERVER[DOCUMENT_ROOT]/php1/config0.php";
+                require_once "config.php";
+	$connection = mysqli_connect('localhost','root','','projectDB');
 
-                $query = "SELECT * FROM classes";
+                $query = "SELECT * FROM grades";
 
                 echo'<style>
                 table {
@@ -32,8 +33,8 @@
                         $N1 = $row["Math"];
                         $N2 = $row["Reading"];
                         $N3 = $row["Science"];
-                        $N4 = $row["Social Studies"];
-                        $N5 = $row["username"];
+                        $N4 = $row["SocialStudies"];
+                        $N5 = $row["Susername"];
                         if($N5 == $_SESSION["username"])
                         {
                           echo'<style>
@@ -124,8 +125,8 @@
                 </style>
 
                         <div class="card shadow-sm" style="text-align:center">
-                            <a href="/php1/student.php"><button class="button button4" type=submit value=Back>Go Back</button></a>
-                            <a href="/index.php"><button class="button button3" type=submit value=logout>Logout</button></a>
+                            <a href="Welcome.php"><button class="button button4" type=submit value=Back>Go Back</button></a>
+                            <a href="logout.php"><button class="button button3" type=submit value=logout>Logout</button></a>
                         </div>';
                     }
                 
@@ -133,7 +134,7 @@
 
                 if (isset($_POST['logout'])) 
                 {
-                    logout('Location:/index.php');
+                    logout('Location:Login.php');
                 } 
             ?>
         </div>

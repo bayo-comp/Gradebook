@@ -3,7 +3,8 @@
 
         <div class=welcome>
             <?php
-                include_once "$_SERVER[DOCUMENT_ROOT]/php1/config0.php";
+                require_once "config.php";
+		$connection = mysqli_connect('localhost','root','','projectDB');
                 function isAdmin($user_data) {
                     return isset($user_data) && isset($user_data['user_type']) && $user_data['user_type'] == 'Admin';
                     }
@@ -109,7 +110,7 @@
                 
                 if (isset($_POST['logout'])) 
                 {
-                    logout('Location:/index.php');
+                    logout('Location:/Login.php');
                 }
             ?>
         </div>

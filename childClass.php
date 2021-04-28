@@ -2,13 +2,8 @@
 
 {
 session_start();
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "webdesign";
 
-
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = mysqli_connect('localhost','root','','projectDB');
 // Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
@@ -26,7 +21,7 @@ echo "<table border='1' >
 
 
 $username  = $_SESSION['username'];
-$sql="SELECT Susername,name, start_date,end_date FROM webDesign.classes Where Pusername='$username'";
+$sql="SELECT Susername,name, start_date,end_date FROM classes Where Pusername='$username'";
 $result = $conn->query($sql);
 //the problem was the query code didn't work for some reason.
 if ($result->num_rows > 0) {

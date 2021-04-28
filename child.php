@@ -1,17 +1,9 @@
-
-
-
 <?php
 
 {
 session_start();
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "webdesign";
 
-
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = mysqli_connect('localhost','root','','projectDB');
 // Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
@@ -29,7 +21,7 @@ echo "<table border='10' >
 
 
 $username  = $_SESSION['username'];
-$sql="SELECT SFirstName,SLastName,username, firstname, lastname FROM webDesign.parent Where username='$username'";
+$sql="SELECT SFirstName,SLastName,username, firstname, lastname FROM parent Where username='$username'";
 $result = $conn->query($sql);
 
 //the problem was the query code didn't work for some reason.

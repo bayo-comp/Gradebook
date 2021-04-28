@@ -4,9 +4,10 @@
             <?php
 
                 session_start();
-                include_once "$_SERVER[DOCUMENT_ROOT]/php1/config0.php";
+                require_once "config.php";
+		$connection = mysqli_connect('localhost','root','','projectDB');
 
-                $query = "SELECT * FROM Class";
+                $query = "SELECT * FROM classes";
 
                 echo'<style>
                 table {
@@ -14,63 +15,8 @@
                   border-collapse: collapse;
                   width: 100%;
                 }
-                
-                </style>';
 
-                echo'<table class="center"; border="0"; cellspacing="4"; cellpadding="4";>
-                        <tr>
-                            <th><font face="Arial">Id</font></th>
-                            <th><font face="Arial">Name</font></th>
-                            <th><font face="Arial">Start Date</font></th>
-                            <th><font face="Arial">End date</font></th>
-                            <th><font face="Arial">Teacher Id</font></th>
-                            <th><font face="Arial">Course Id</font></th>
-                        </tr>';
-                
-                $i = 0;
-                
-                if($result = $connection->query($query))
-                {
-                    while ($row = $result->fetch_assoc())
-                    {
-                        $N1 = $row["Id"];
-                        $N2 = $row["Name"];
-                        $N3 = $row["start_date"];
-                        $N4 = $row["end_date"];
-                        $N5 = $row["teacher_id"];
-                        $N6 = $row["course_id"];
-                        $N7 = $row["Susername"];
-                        if($N7 == $_SESSION["username"])
-                        {
-                          echo'<style>
-              
-                          td, th {
-                            border: 1px solid #dddddd;
-                            text-align: left;
-                            padding: 8px;
-                          }
-                          
-                          tr:nth-child(even) {
-                            background-color: #dddddd;
-                          }
-                          </style>';
-
-                          echo'<tr>
-                                  <td>'.$N1.'</td>
-                                  <td>'.$N2.'</td>
-                                  <td>'.$N3.'</td>
-                                  <td>'.$N4.'</td>
-                                  <td>'.$N5.'</td>
-                                  <td>'.$N6.'</td>
-                              <tr>';
-
-                              $i+=1;
-                        }
-                    }
-                    $_SESSION["NumberofClasses"] = $i;
-                    echo '
-                    <style>
-                    #page-wrap {
+		#page-wrap {
                         width: 800px;
                         margin: 0 auto;
                     }
@@ -131,21 +77,69 @@
                         background-color: #0000FF;
                         color: white;
                       }
-                      
-                </style>
 
-                        <div class="card shadow-sm" style="text-align:center">
-                            <a href="/php1/student.php"><button class="button button4" type=submit value=Back>Go Back</button></a>
-                            <a href="/index.php"><button class="button button3" type=submit value=logout>Logout</button></a>
-                        </div>';
+			td, th {
+                            border: 1px solid #dddddd;
+                            text-align: left;
+                            padding: 8px;
+                          }
+                          
+                          tr:nth-child(even) {
+                            background-color: #dddddd;
+                          }
+                
+                </style>';
+
+                echo '
+
+		<div class="card shadow-sm" style="text-align:center">
+                            <a href="Welcome.php"><button class="button button4" type=submit value=Back>Go Back</button></a>
+                            <a href="logout.php"><button class="button button3" type=submit value=logout>Logout</button></a>
+                </div>
+		<table class="center"; border="0"; cellspacing="4"; cellpadding="4";>
+                        <tr>
+                            <th><font face="Arial">Name</font></th>
+                            <th><font face="Arial">Start Date</font></th>
+                            <th><font face="Arial">End date</font></th>
+                            <th><font face="Arial">Teacher Username</font></th>
+                            <th><font face="Arial">Student Username</font></th>
+				<th><font face="Arial">Parent Username</font></th>
+                        </tr>';
+                
+                $i = 0;
+                
+                if($result = $connection->query($query))
+                {
+                    while ($row = $result->fetch_assoc())
+                    {
+                        
+                        $N2 = $row["name"];
+                        $N3 = $row["start_date"];
+                        $N4 = $row["end_date"];
+                        $N5 = $row["TeacherUsername"];
+                        $N6 = $row["Susername"];
+                        $N7 = $row["Pusername"];
+                        if($N6 == $_SESSION["username"])
+                        {
+          
+                          echo'<tr>
+                                  
+                                  <td>'.$N2.'</td>
+                                  <td>'.$N3.'</td>
+                                  <td>'.$N4.'</td>
+                                  <td>'.$N5.'</td>
+                                  <td>'.$N6.'</td>
+				<td>'.$N7.'</td>
+                              <tr>';
+
+                              $i+=1;
+                        }
+                    }
+                    $_SESSION["NumberofClasses"] = $i;
+                        
                     }
                 
-                $result->free();
-
-                if (isset($_POST['logout'])) 
-                {
-                    logout('Location:/index.php');
-                } 
+                
             ?>
         </div>
     </body>

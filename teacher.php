@@ -3,8 +3,8 @@
 <body>
 <?php 
 session_start();
-include_once "config.php";
-$mysqli = new mysqli('localhost','root','','webdesign'); 
+require_once "config.php";
+$conn = mysqli_connect('localhost','root','','projectDB');
 $query = "SELECT * FROM student";
 echo '<style>
                     #page-wrap {
@@ -88,8 +88,8 @@ echo'<style>
                         }
                         </style>';
 echo'<div class="card shadow-sm" style="text-align:center">
-    <a href="/welcome.php"><button class="button button4" type=submit value=Back>Go Back</button></a>
-    <a href="/index.php"><button class="button button3" type=submit value=logout>Logout</button></a>
+    <a href="welcome.php"><button class="button button4" type=submit value=Back>Go Back</button></a>
+    <a href="logout.php"><button class="button button3" type=submit value=logout>Logout</button></a>
 </div>';
 
 echo '<table border="0" cellspacing="2" cellpadding="2"> 
@@ -105,7 +105,7 @@ echo '<table border="0" cellspacing="2" cellpadding="2">
       </tr>';
 
 echo '<p> Welcome ', $_SESSION["username"], '</p>';
-if ($result = $mysqli->query($query)) {
+if ($result = $conn->query($query)) {
     while ($row = $result->fetch_assoc()) {
         $field1name = $row["ID"];
         $field2name = $row["username"];
@@ -114,7 +114,7 @@ if ($result = $mysqli->query($query)) {
         $field5name = $row["Gender"]; 
         $field6name = $row["MotherUsername"];
         $field7name = $row["FatherUsername"]; 
-        $field8name = $row["Tusername"]; 
+        $field8name = $row["TeacherUsername"]; 
       if($field8name==$_SESSION["username"] ){
         echo '<tr> 
                   <td>'.$field1name.'</td>  
