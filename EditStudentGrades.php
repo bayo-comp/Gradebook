@@ -3,8 +3,8 @@
 <body>
 <?php 
 session_start();
-include_once "config.php";
-$mysqli = new mysqli('localhost','root','','webdesign'); 
+include_once "C:/xampp/htdocs/config.php";
+$mysqli = new mysqli("localhost", $username, $pass, $dbname); 
 echo '<style>
                     #page-wrap {
                         width: 800px;
@@ -87,8 +87,8 @@ echo'<style>
                         }
                         </style>';
 echo'<div class="card shadow-sm" style="text-align:center">
-    <a href="Welcome.php"><button class="button button4" type=submit value=Back>Go Back</button></a>
-    <a href="logout.php"><button class="button button3" type=submit value=logout>Logout</button></a>
+    <a href="/welcome.php"><button class="button button4" type=submit value=Back>Go Back</button></a>
+    <a href="/index.php"><button class="button button3" type=submit value=logout>Logout</button></a>
 </div>';
 if(isset($_POST['submit']))
 {
@@ -100,9 +100,11 @@ if(isset($_POST['submit']))
     $Science = $_POST['Science'];
     $SocialStudies = $_POST['SocialStudies'];
     $Susername = $_POST['Susername'];
-    $field1name=$_SESSION["username"];
-    $sql = $connection->query("INSERT INTO grades (Math ,Reading ,Science ,SocialStudies ,Susername, Tusername) 
-    VALUES ('$Math','$Reading','$Science','$SocialStudies','$Susername','$field1name')");
+    $Tusername = $_SESSION["username"];
+    // change to update
+    $sql = $connection->query("UPDATE grades  SET Math = '$Math' ,Reading = '$Reading' ,Science = '$Science'
+     ,SocialStudies = '$SocialStudies' ,Susername = '$Susername', Tusername = '$Tusername' 
+     WHERE Susername = '$Susername'");
     // $sql1 = $connection->query("UPDATE grades SET Tusername={$_SESSION["username"]} 
     // WHERE Susername = '$Susername");
     if ($sql == false) { // an error occured with the sql querry
