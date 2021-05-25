@@ -7,6 +7,7 @@ include_once "config.php";
 $mysqli = new mysqli('localhost','root','','projectDB'); 
 $query = "SELECT * FROM grades";
 echo '<style>
+//
                     #page-wrap {
                         width: 800px;
                         margin: 0 auto;
