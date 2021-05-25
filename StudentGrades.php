@@ -2,7 +2,7 @@
     <body>
         <div class=Add>
             <?php
-
+//
                 session_start();
                 require_once "config.php";
 	$connection = mysqli_connect('localhost','root','','projectDB');
