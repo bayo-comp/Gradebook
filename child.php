@@ -2,7 +2,7 @@
 
 {
 session_start();
-
+//
 $conn = mysqli_connect('localhost','root','','projectDB');
 // Check connection
 if ($conn->connect_error) {
