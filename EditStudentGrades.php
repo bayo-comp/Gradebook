@@ -6,6 +6,7 @@ session_start();
 include_once "config.php";
 $connection = mysqli_connect('localhost','root','','projectDB');
 echo '<style>
+//
                     #page-wrap {
                         width: 800px;
                         margin: 0 auto;
