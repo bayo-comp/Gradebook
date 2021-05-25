@@ -7,6 +7,7 @@ require_once "config.php";
 $conn = mysqli_connect('localhost','root','','projectDB');
 $query = "SELECT * FROM student";
 echo '<style>
+//
                     #page-wrap {
                         width: 800px;
                         margin: 0 auto;
