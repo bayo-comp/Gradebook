@@ -1,6 +1,6 @@
 <html>
     <body>
-
+//
         <div class=welcome>
             <?php
                 require_once "config.php";
